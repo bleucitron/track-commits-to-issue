@@ -5,23 +5,24 @@ branding:
   icon: list
   color: blue
 inputs:
-  owner:  
+  owner:
     description: 'Owner of tracking repository'
     required: true
-  repo:  
+  repo:
     description: 'Name of repository to track'
     required: true
-  dir:  
-    description: 'Subdirectory in repo to track'
-  token:  
+  dirs:
+    description: 'Subdirectories in repo to track'
+  token:
     description: 'Github Token to handle much requests or have access to private repositories'
-  title:  
+  title:
     description: 'Issue title'
-  hours:  
+  hours:
     description: 'Maximum hours to retrieve commits first time'
-  print:  
+  print:
     description: Print markdown to action log instead creating issue
     default: false
 runs:
   using: 'node12'
   main: 'dist/action.js'
+

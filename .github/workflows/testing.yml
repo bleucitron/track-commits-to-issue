@@ -1,17 +1,21 @@
 on: [push]
 
 jobs:
-  test-action:
-    runs-on: ubuntu-latest
-    name: Testing action
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Check commits in remote repo
-      uses: ./
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        owner: sveltejs
-        repo: kit
-        dir: documentation
-        print: true
+    test-action:
+        runs-on: ubuntu-latest
+        name: Testing action
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            - name: Check commits in remote repo
+              uses: ./
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  owner: sveltejs
+                  repo: svelte.dev
+                  dirs:
+                      [
+                          "apps/svelte.dev/content/docs/svelte/01-introduction",
+                          "apps/svelte.dev/content/docs/svelte/02-runes",
+                      ]
+                  print: true
